@@ -9,6 +9,8 @@ var breakpointApp = angular.module('breakpointApp',[]);
  *
  *  Values are available on scope as
  *  {{breakpoint.class}} = current set class
+ *
+ *  
  *  {{breakpoint.windowSize}} = current width of window
  *
  */
