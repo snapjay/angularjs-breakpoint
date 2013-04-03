@@ -8,50 +8,30 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
         <title>AngularJS Breakpoint Responsive Design</title>
         <meta name="description" content="AngularJS directive that set breakpoints for responsive designed websites">
+        <meta name="tags" content="AngularJS directive that set breakpoints for responsive designed websites">
         <meta name="viewport" content="width=device-width">
 
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
 
         <link href='http://fonts.googleapis.com/css?family=Noto+Sans:400,700' rel='stylesheet' type='text/css'>
         <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'>
-        <link rel="stylesheet" href="css/normalize.css">
-        <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/style.css">
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.1.3/angular.js"></script>
         <script src="https://raw.github.com/snapjay/angularjs-breakpoint/master/breakpoint.0.1.js"></script>
-        <style>
-        ::selection {
-            background: #ffb9e4;
-        }
-        ::-moz-selection {
-            background: #FFB9E4;
-        }
-            body {font-family: 'Noto Sans', sans-serif;
-                font-weight: 400;
-                background: url("img/png.png") #e6e6e6;
-                color:#333;
-                text-shadow: #fff 1px 1px 1px;
+        <script>
 
-            }
-            code {background-color: #fff; padding:3px 5px; font-size:90%; color:#aa4231;   -moz-border-radius: 4px;
-                -webkit-border-radius: 4px;
-                -khtml-border-radius: 4px;
-                border-radius: 4px;}
-            code.block {display:block;}
-            h1 {
-                font-family: 'Sanchez', serif;
-                font-size: 4em;
-                color: #aa4231;
-            }
-            h2 {font-weight: 700;}
-            #main {
-                padding: 20px;;
-            }
-            a {
-                color:#aa4231;
-            }
-        </style>
+            breakpointApp.controller('breakpoint', function($scope){
+                $scope.$watch('breakpoint.class', function(newBreakpoint, oldBreakpoint){
+                    if(newBreakpoint) $scope.eventsEnter = newBreakpoint;
+                    if(oldBreakpoint) $scope.eventsLeave =  oldBreakpoint; else $scope.eventsLeave = ' n/a ';
+
+                });
+            })
+
+        </script>
+
     </head>
-    <body  ng-app="breakpointApp"  breakpoint="{0:'smallscreen', 750:'break750', 500:'break500', 1000:'break1000', 1500:'break1500', 2000:'ultrawidescreen', 3000:'iwantyourscreen'}" >
+    <body  ng-app="breakpointApp" ng-controller="breakpoint"  breakpoint="{0:'smallscreen', 750:'break750', 500:'break500', 1000:'break1000', 1500:'break1500', 2000:'ultrawidescreen', 3000:'iwantyourscreen'}" >
         <!--[if lt IE 7]>
             <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
         <![endif]-->
@@ -61,11 +41,11 @@
 
         <div id="main">
             <h1>AngularJS Breakpoint</h1>
-            <h2>AngularJS directive that set breakpoints for responsive designed websites</h2>
+            <h2>AngularJS directive that set breakpoints for responsive websites.</h2>
             <ul>
-                <li>Just add a directive to the body tag</li>
-                <li>Add as many breakpoints as you want</li>
-                <li>Current breakpoint and width available in scope</li>
+                <li>Add the <code>breakpoint</code> directive to the body tag</li>
+                <li>Define as many breakpoints as you want in an object</li>
+                <li>Current breakpoint class and window width available in scope</li>
             </ul>
 
 
@@ -78,23 +58,48 @@
                 <dd>{{breakpoint.windowSize}}  (px)</dd>
             </dl>
 
-            <h2>Setup</h2>
+
+
+<div style="clear: both;"></div>
+            <h2 style="margin-top: 20px;">Setup</h2>
 <p>Add the <code>breakpoint</code> attribute to the <code>body</code> tag and give it a value off an object defined as follows:<br />
  Set the key as the smallest value you want the breakpoint to start at and the value as the name of the class you want added to the <code>body</code> tag.<br />
-The values do not needto be in numerical order.<br />
- Recomment that the lowest value is 0</p>
+The values do not need to be in numerical order.<br />
+I recommend that the lowest value is 0</p>
            <code class="block">&lt;body breakpoint="{0:'smallscreen', 750:'break750', 500:'break500', 1000:'break1000', 1500:'break1500'}"&gt;<br />
                ...
                <br />&lt;/body&gt;
            </code>
 
+<p>The 'current class' and 'current window width' are available on the scope as <code>&#123;&#123;breakpoint.class&#125;&#125;</code> and <code>&#123;&#123;breakpoint.windowSize&#125;&#125;</code></p>
+            <h2>Events</h2>
+            <p>If you want to capture when a breakpoint is entered or left, set up a <code>$watch</code> on the <code>breakpoint.windowSize</code>.
+                <code class="block">
+                    $scope.$watch('breakpoint.class', function(newBreakpoint, oldBreakpoint){ <br />
+                    &nbsp;&nbsp; console.log('Entering:' + newBreakpoint); <br />
+                    &nbsp;&nbsp; console.log('Leaving:' + oldBreakpoint);<br />
+                    });
+                </code>
 
-            <h2>Download</h2>
+            </p>
+            <dl>
+                <dt>Entering:</dt>
+                <dd>{{eventsEnter}}</dd>
+                <dt>Leaving:</dt>
+                <dd>{{eventsLeave}}</dd>
+            </dl>
+
+            <div style="clear: both;"></div>
+            <h2 style="margin-top: 20px;">Download</h2>
             <a href="https://github.com/snapjay/angularjs-breakpoint">Version 0.1</a>
 
 
             <h2>Licence</h2>
             <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_GB"><img alt="Creative Commons Licence" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by/3.0/deed.en_GB">Creative Commons Attribution 3.0 Unported License</a>.
+
+            <h2>Credit</h2>
+            Dan Shreim <br />
+            <a href="http://snapjay.com/">snapjay.com</a>
         </div>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
