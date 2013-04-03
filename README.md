@@ -28,28 +28,28 @@ The 'current class' and 'current window width' are available on the scope as bre
 Events
 -------
 If you want to capture when a breakpoint is entered or left, set up a $watch on the breakpoint.class.
-$scope.$watch('breakpoint.class', function(newBreakpoint, oldBreakpoint){ 
-   console.log('Entering:' + newBreakpoint); 
-   console.log('Leaving:' + oldBreakpoint);
+$scope.$watch('breakpoint.class', function(newBreakpoint, oldBreakpoint){ <br />
+   console.log('Entering:' + newBreakpoint);  <br />
+   console.log('Leaving:' + oldBreakpoint); <br />
 });
 
 
 Download on Github
 ------------------
-Version 0.1
+Version 0.1: https://github.com/snapjay/angularjs-breakpoint
 
 
 
 Licence
 -------
-This work is licensed under a Creative Commons Attribution 3.0 Unported License.
-http://creativecommons.org/licenses/by/3.0/deed.en_GB
+This work is licensed under a Creative Commons Attribution 3.0 Unported License. <br />
+http://creativecommons.org/licenses/by/3.0/deed.en_GB <br />
 If you use the script, please let me know @snapjay;  Don't worry, I won't ask for anything!
 
 
 
 Credit
 ------
-Dan Shreim
-@snapjay
+Dan Shreim <br />
+<a href="http://www.twitter.com/snapjay/">@snapjay</a> <br />
 http://snapjay.com
