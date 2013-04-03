@@ -73,7 +73,7 @@ I recommend that the lowest value is 0</p>
 
 <p>The 'current class' and 'current window width' are available on the scope as <code>&#123;&#123;breakpoint.class&#125;&#125;</code> and <code>&#123;&#123;breakpoint.windowSize&#125;&#125;</code></p>
             <h2>Events</h2>
-            <p>If you want to capture when a breakpoint is entered or left, set up a <code>$watch</code> on the <code>breakpoint.windowSize</code>.
+            <p>If you want to capture when a breakpoint is entered or left, set up a <code>$watch</code> on the <code>breakpoint.class</code>.
                 <code class="block">
                     $scope.$watch('breakpoint.class', function(newBreakpoint, oldBreakpoint){ <br />
                     &nbsp;&nbsp; console.log('Entering:' + newBreakpoint); <br />
