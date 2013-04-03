@@ -4,6 +4,8 @@ var breakpointApp = angular.module('breakpointApp',[]);
 /***
  *
  * BREAKPOINT DIRECTIVE FOR RESPONSIVE WEBSITES
+ *
+ *  http://snapjay.github.com/angularjs-breakpoint/
  *  Apply as a attribute of the body tag.  Set
  *  breakpoint="{1250:'break1250', 1000:'break1000',1120:'break1120'}
  *
