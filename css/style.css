@@ -43,4 +43,15 @@ dd { background-color: #e6ed8b; margin-left: 200px; width:120px; color: #000; te
 
 
 
-
+.social{
+    list-style-type: none;
+    margin: 0px;
+    padding: 0px;
+    position: absolute;
+    right: 76px;
+}
+.social li{
+    display: block;
+    float: left;
+    width: 75px;
+}
