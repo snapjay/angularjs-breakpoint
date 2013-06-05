@@ -17,10 +17,11 @@ Add the breakpoint attribute to the body tag and give it a value off an object d
 Set the key as the smallest value you want the breakpoint to start at and the value as the name of the class you want added to the body tag.
 The values do not need to be in numerical order.
 I recommend that the lowest value is 0
-
+```
 <body breakpoint="{0:'smallscreen', 750:'break750', 500:'break500', 1000:'break1000', 1500:'break1500'}">
 ... 
 </body>
+```
 The 'current class' and 'current window width' are available on the scope as break1500 and 1680
 
 
@@ -28,10 +29,21 @@ The 'current class' and 'current window width' are available on the scope as bre
 Events
 -------
 If you want to capture when a breakpoint is entered or left, set up a $watch on the breakpoint.class.
+```
 $scope.$watch('breakpoint.class', function(newBreakpoint, oldBreakpoint){ <br />
    console.log('Entering:' + newBreakpoint);  <br />
    console.log('Leaving:' + oldBreakpoint); <br />
 });
+``
+You can also set a listener on any scope within your app, by using the scope method $on. The triggered event is called
+right after the class of the element has been changed.
+```
+$scope.$on('breakpointChange', function(event, breakpoint, oldClass) {
+   console.log('Entering:' + breakpoint.class);
+   console.log('Leaving:' + oldClass);
+   console.log('windowSize' + breakpoint.windowSize);
+});
+```
 
 
 Download on Github
