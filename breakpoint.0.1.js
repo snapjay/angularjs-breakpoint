@@ -32,8 +32,8 @@ var breakpointApp = angular.module('breakpointApp',[]);
                 if (newClass != oldClass) broadcastEvent();
             });
 
-            function broadcastEvent (oldKlass) {
-                $rootScope.$broadcast('breakpointChange', scope.breakpoint, oldKlass);
+            function broadcastEvent (oldClass) {
+                $rootScope.$broadcast('breakpointChange', scope.breakpoint, oldClass);
             }
 
             function setWindowSize (){
