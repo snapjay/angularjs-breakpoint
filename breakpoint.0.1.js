@@ -28,8 +28,8 @@ var breakpointApp = angular.module('breakpointApp',[]);
                 setClass(windowWidth);
             });
 
-            scope.$watch('breakpoint.class', function(class, oldClass) {
-                if (class != oldClass) broadcastEvent();
+            scope.$watch('breakpoint.class', function(newClass, oldClass) {
+                if (newClass != oldClass) broadcastEvent();
             });
 
             function broadcastEvent (oldKlass) {
