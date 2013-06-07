@@ -14,7 +14,7 @@ var breakpointApp = angular.module('breakpointApp',[]);
  *
  */
 
-    breakpointApp.directive('breakpoint', function($window, $rootScope){
+    breakpointApp.directive('breakpoint', ['$window', '$rootScope', function($window, $rootScope){
     return {
         restrict:"A",
         link:function(scope, element, attr){
@@ -53,7 +53,7 @@ var breakpointApp = angular.module('breakpointApp',[]);
             }
         }
     }
-});
+}]);
 
 
 
