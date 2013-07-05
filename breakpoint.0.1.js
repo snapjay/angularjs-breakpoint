@@ -9,7 +9,7 @@ var breakpointApp = angular.module('breakpointApp',[]);
  *  breakpoint="{1250:'break1250', 1000:'break1000',1120:'break1120'}
  *
  *  Values are available on scope as
- *  {{breakpoint.class}} = current set class
+ *  {{breakpoint.class}} = current  class (Set on body)
  *  {{breakpoint.windowSize}} = current width of window
  *
  */
