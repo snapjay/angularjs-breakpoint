@@ -20,9 +20,9 @@
         <script src="https://raw.github.com/snapjay/angularjs-breakpoint/master/breakpoint.0.1.js"></script>
         <script>
             breakpointApp.controller('breakpoint', function($scope){
-                $scope.$watch('breakpoint.class', function(newBreakpoint, oldBreakpoint){
-                    if(newBreakpoint) $scope.eventsEnter = newBreakpoint;
-                    if(oldBreakpoint) $scope.eventsLeave =  oldBreakpoint; else $scope.eventsLeave = ' n/a ';
+                $scope.$on('breakpointChange', function(event, breakpoint, oldClass){
+                     $scope.eventsEnter = breakpoint.class;
+                    if(oldClass) $scope.eventsLeave =  oldClass; else $scope.eventsLeave = ' n/a ';
 
                 });
             });
