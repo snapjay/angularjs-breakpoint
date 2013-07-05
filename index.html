@@ -17,8 +17,9 @@
         <link href='http://fonts.googleapis.com/css?family=Sanchez' rel='stylesheet' type='text/css'>
         <link rel="stylesheet" href="css/style.css">
         <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.1.3/angular.js"></script>
-        <script src="https://raw.github.com/snapjay/angularjs-breakpoint/master/breakpoint.0.1.js"></script>
+        <script src="breakpoint.0.1.js"></script>
         <script>
+            console.log (breakpointApp);
             breakpointApp.controller('breakpoint', function($scope){
                 $scope.$on('breakpointChange', function(event, breakpoint, oldClass){
                      $scope.eventsEnter = breakpoint.class;
