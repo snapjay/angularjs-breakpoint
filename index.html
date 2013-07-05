@@ -53,6 +53,7 @@
                 <li>Add the <code>breakpoint</code> directive to the body tag</li>
                 <li>Define as many breakpoints as you want in an object</li>
                 <li>Current breakpoint class and window width available in scope</li>
+                <li>Event broadcast when breakpoint changes</li>
             </ul>
             <h2>Demo</h2>
             <p>Resize the window to see the new breakpoints</p>
@@ -74,11 +75,13 @@ I recommend that the lowest value is 0</p>
            </code>
 <p>The 'current class' and 'current window width' are available on the scope as <code>&#123;&#123;breakpoint.class&#125;&#125;</code> and <code>&#123;&#123;breakpoint.windowSize&#125;&#125;</code></p>
             <h2>Events</h2>
-            <p>If you want to capture when a breakpoint is entered or left, set up a <code>$watch</code> on the <code>breakpoint.class</code>.
+            <p>You can set a listener on any scope within your app, by using the scope method <code>$on</code>. 
+            The triggered event is called right after the class of the element has been changed.
                 <code class="block">
-                    $scope.$watch('breakpoint.class', function(newBreakpoint, oldBreakpoint){ <br />
-                    &nbsp;&nbsp; console.log('Entering:' + newBreakpoint); <br />
-                    &nbsp;&nbsp; console.log('Leaving:' + oldBreakpoint);<br />
+                    $scope.$on('breakpointChange', function(event, breakpoint, oldClass) { <br />
+                    &nbsp;&nbsp;console.log('Entering:' + breakpoint.class); <br />
+                    &nbsp;&nbsp;console.log('Leaving:' + oldClass); <br />
+                    &nbsp;&nbsp;console.log('windowSize' + breakpoint.windowSize); <br />
                     });
                 </code>
             </p>
