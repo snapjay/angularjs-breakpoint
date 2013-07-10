@@ -28,14 +28,7 @@ The 'current class' and 'current window width' are available on the scope as bre
 
 Events
 -------
-If you want to capture when a breakpoint is entered or left, set up a $watch on the breakpoint.class.
-```
-$scope.$watch('breakpoint.class', function(newBreakpoint, oldBreakpoint){ <br />
-   console.log('Entering:' + newBreakpoint);  <br />
-   console.log('Leaving:' + oldBreakpoint); <br />
-});
-``
-You can also set a listener on any scope within your app, by using the scope method $on. The triggered event is called
+You can set a listener on any scope within your app, by using the scope method $on. The triggered event is called
 right after the class of the element has been changed.
 ```
 $scope.$on('breakpointChange', function(event, breakpoint, oldClass) {
@@ -44,6 +37,7 @@ $scope.$on('breakpointChange', function(event, breakpoint, oldClass) {
    console.log('windowSize' + breakpoint.windowSize);
 });
 ```
+
 
 
 Download on Github

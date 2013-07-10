@@ -1,4 +1,3 @@
-
 var breakpointApp = angular.module('breakpointApp',[]);
 
 /***
@@ -15,7 +14,7 @@ var breakpointApp = angular.module('breakpointApp',[]);
  *
  */
 
-    breakpointApp.directive('breakpoint', function($window, $rootScope){
+    breakpointApp.directive('breakpoint', ['$window', '$rootScope', function($window, $rootScope){
     return {
         restrict:"A",
         link:function(scope, element, attr){
@@ -29,12 +28,12 @@ var breakpointApp = angular.module('breakpointApp',[]);
                 setClass(windowWidth);
             });
 
-            scope.$watch('breakpoint.class', function(klass, oldKlass) {
-                if (klass != oldKlass) broadcastEvent();
+            scope.$watch('breakpoint.class', function(newClass, oldClass) {
+                if (newClass != oldClass) broadcastEvent();
             });
 
-            function broadcastEvent (oldKlass) {
-                $rootScope.$broadcast('breakpointChange', scope.breakpoint, oldKlass);
+            function broadcastEvent (oldClass) {
+                $rootScope.$broadcast('breakpointChange', scope.breakpoint, oldClass);
             }
 
             function setWindowSize (){
@@ -54,7 +53,7 @@ var breakpointApp = angular.module('breakpointApp',[]);
             }
         }
     }
-});
+}]);
 
 
 
