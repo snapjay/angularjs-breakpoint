@@ -14,11 +14,11 @@ var breakpointApp = angular.module('breakpointApp',[]);
  *
  */
 
-    breakpointApp.directive('breakpoint', ['$window', '$rootScope', function($window, $rootScope){
+breakpointApp.directive('breakpoint', ['$window', '$rootScope', function($window, $rootScope){
     return {
         restrict:"A",
         link:function(scope, element, attr){
-            scope.breakpoint = {class:'', windowSize:$window.innerWidth } // Initialise Values;
+            scope.breakpoint = {class:'', windowSize:$window.innerWidth }; // Initialise Values
 
             var breakpoints = (scope.$eval(attr.breakpoint));
 
@@ -38,7 +38,7 @@ var breakpointApp = angular.module('breakpointApp',[]);
 
             function setWindowSize (){
                 scope.breakpoint.windowSize = $window.innerWidth;
-                scope.$apply();
+                if(!scope.$$phase) scope.$apply();
             }
 
             function setClass(windowWidth){
@@ -49,12 +49,8 @@ var breakpointApp = angular.module('breakpointApp',[]);
                 }
                 element.addClass(setClass);
                 scope.breakpoint.class  = setClass;
-                scope.$apply();
+                if(!scope.$$phase) scope.$apply();
             }
         }
     }
 }]);
-
-
-
-
