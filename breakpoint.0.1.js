@@ -39,7 +39,6 @@ breakpointApp.directive('breakpoint', ['$window', '$rootScope', function($window
             function setWindowSize (){
                 scope.breakpoint.windowSize = $window.innerWidth;
                 if(!scope.$$phase) scope.$apply();
-
             }
 
             function setClass(windowWidth){
