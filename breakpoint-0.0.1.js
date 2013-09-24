@@ -1,18 +1,18 @@
-var breakpointApp = angular.module('breakpointApp',[]);
 
-/***
+/*!
+ * angularjs-breakpoint v0.0.1
  *
  * BREAKPOINT DIRECTIVE FOR RESPONSIVE WEBSITES
  *
  *  http://snapjay.github.com/angularjs-breakpoint/
- *  Apply as a attribute of the body tag.  Set
+ *  Apply as a attribute of the body tag. Set
  *  breakpoint="{1250:'break1250', 1000:'break1000',1120:'break1120'}
  *
  *  Values are available on scope as
  *  {{breakpoint.class}} = current set class
  *  {{breakpoint.windowSize}} = current width of window
- *
  */
+var breakpointApp = angular.module('breakpointApp',[]);
 
 breakpointApp.directive('breakpoint', ['$window', '$rootScope', function($window, $rootScope){
     return {

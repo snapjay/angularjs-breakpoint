@@ -38,11 +38,18 @@ $scope.$on('breakpointChange', function(event, breakpoint, oldClass) {
 });
 ```
 
+Contribution
+------------
+This project is built with GruntJS. To contribute to this project make sure to install node.js and npm.
+Assuming npm is installed, run `$ npm install` inside the project directory to install the dependencies and you should
+be ready to go.
+Once you make a change, use `$ grunt build` inside the project folder to build the distribution files.
+The version number is determined from the `package.json` file inside the project directory.
 
 
 Download on Github
 ------------------
-Version 0.1: https://github.com/snapjay/angularjs-breakpoint
+Version 0.0.1: https://github.com/snapjay/angularjs-breakpoint
 
 
 
