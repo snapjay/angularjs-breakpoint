@@ -53,7 +53,7 @@ Version 0.0.1: https://github.com/snapjay/angularjs-breakpoint
 
 
 
-Licence
+License
 -------
 
 This module is licensed using the MIT License:
