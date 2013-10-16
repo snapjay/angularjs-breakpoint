@@ -28,15 +28,15 @@ breakpointApp.directive('breakpoint', ['$window', '$rootScope', function($window
             }
 
             function setClass(windowWidth){
-                var setClass = breakpoints[Object.keys(breakpoints)[0]];
+                var breakpointClass = breakpoints[Object.keys(breakpoints)[0]];
                 for (var breakpoint in breakpoints){
-                    if (breakpoint < windowWidth) setClass = breakpoints[breakpoint];
+                    if (breakpoint < windowWidth) breakpointClass = breakpoints[breakpoint];
                     element.removeClass(breakpoints[breakpoint]);
                 }
-                element.addClass(setClass);
-                scope.breakpoint.class  = setClass;
+                element.addClass(breakpointClass);
+                scope.breakpoint.class  = breakpointClass;
                 if(!scope.$$phase) scope.$apply();
             }
         }
-    }
+    };
 }]);
