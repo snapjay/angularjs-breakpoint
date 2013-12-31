@@ -1,0 +1,8 @@
+{
+  "name": "angularjs-breakpoint",
+  "version": "1.0.0",
+  "main": "js/breakpoint.min.js",
+  "ignore": [
+    ".*"
+  ]
+}
