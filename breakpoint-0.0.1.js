@@ -1,4 +1,3 @@
-
 /*!
  * angularjs-breakpoint v0.0.1
  *
@@ -21,6 +20,7 @@ breakpointApp.directive('breakpoint', ['$window', '$rootScope', function($window
             scope.breakpoint = {class:'', windowSize:$window.innerWidth }; // Initialise Values
 
             var breakpoints = (scope.$eval(attr.breakpoint));
+            var firstTime = true;
 
             angular.element($window).bind('resize', setWindowSize);
 
@@ -29,7 +29,10 @@ breakpointApp.directive('breakpoint', ['$window', '$rootScope', function($window
             });
 
             scope.$watch('breakpoint.class', function(newClass, oldClass) {
-                if (newClass != oldClass) broadcastEvent();
+                if (newClass != oldClass || firstTime) {
+                    broadcastEvent(oldClass);
+                    firstTime = false;
+                }
             });
 
             function broadcastEvent (oldClass) {
