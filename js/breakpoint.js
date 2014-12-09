@@ -15,7 +15,7 @@ breakpointApp.directive('breakpoint', ['$window', '$rootScope', function($window
             });
 
             scope.$watch('breakpoint.class', function(newClass, oldClass) {
-                if (newClass != oldClass) broadcastEvent();
+                if (newClass != oldClass) broadcastEvent(oldClass);
             });
 
             function broadcastEvent (oldClass) {
